@@ -14,10 +14,9 @@ const categories = [
 
 const Preferences = ({ darkMode }) => {
   const [selected, setSelected] = useState([]);
-  const API = axios.create({
-    baseURL: process.env.REACT_APP_API || "http://localhost:5000/api",
-  });
-
+const API = axios.create({
+  baseURL: "https://newsmonkey-1xh6.onrender.com/api",
+});
   API.interceptors.request.use((config) => {
     const token = localStorage.getItem("token");
 

@@ -60,7 +60,7 @@ export class News extends Component {
       let url = "";
 
       if (this.props.searchQuery) {
-        url = `${process.env.REACT_APP_API}/news?search=${encodeURIComponent(
+        url = `https://newsmonkey-1xh6.onrender.com/api/news?search=${encodeURIComponent(
           this.props.searchQuery
         )}&page=1&pageSize=${this.props.pageSize}`;
       } else {
@@ -108,7 +108,7 @@ export class News extends Component {
       let url = "";
 
       if (this.props.searchQuery) {
-        url = `${process.env.REACT_APP_API}/news?search=${encodeURIComponent(
+        url = `https://newsmonkey-1xh6.onrender.com/api/news?search=${encodeURIComponent(
           this.props.searchQuery
         )}&page=${nextPage}&pageSize=${this.props.pageSize}`;
       } else {
