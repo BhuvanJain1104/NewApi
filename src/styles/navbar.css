@@ -1,0 +1,29 @@
+.form-check-input:checked {
+    background-color: #ff9800;
+    border-color: #ff9800;
+}
+.nav-link {
+    transition: .25s;
+}
+
+.nav-link:hover {
+    color: #ff9800 !important;
+}.navbar{
+    padding: 10px 0;
+}
+.navbar-nav{
+    gap: 10px;
+}
+.avatar-circle{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#ff9800;
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:700;
+    font-size:18px;
+    box-shadow:0 3px 10px rgba(0,0,0,.2);
+}

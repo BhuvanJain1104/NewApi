@@ -1,0 +1,193 @@
+/* ===========================
+   NAVBAR
+=========================== */
+
+.navbar {
+    transition: all .3s ease;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    z-index: 999;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.navbar-nav {
+    gap: 6px;
+}
+
+.navbar-nav .nav-link {
+    font-weight: 500;
+    padding: 8px 14px !important;
+    border-radius: 8px;
+    transition: .25s;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff9800 !important;
+    background: rgba(255,152,0,.08);
+}
+
+.active-nav {
+    color: #ff9800 !important;
+    background: rgba(255,152,0,.12);
+    font-weight: 700;
+}
+
+/* ===========================
+   SEARCH
+=========================== */
+
+.search-bar input,
+.search-input {
+    width: 260px;
+    border-radius: 10px !important;
+}
+
+/* ===========================
+   USER AVATAR
+=========================== */
+
+.avatar-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg,#ff9800,#ff6d00);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 18px;
+    box-shadow: 0 5px 18px rgba(255,152,0,.35);
+}
+
+.dropdown-toggle::after {
+    margin-left: 10px;
+}
+
+.dropdown-menu {
+    border: none;
+    border-radius: 14px;
+    padding: 10px;
+    min-width: 230px;
+    box-shadow: 0 12px 35px rgba(0,0,0,.18);
+}
+
+.dropdown-item {
+    border-radius: 8px;
+    padding: 10px 14px;
+    transition: .2s;
+}
+
+.dropdown-item:hover {
+    background: rgba(255,152,0,.12);
+    color: #ff9800;
+}
+
+/* ===========================
+   THEME SWITCH
+=========================== */
+
+.theme-switch {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.theme-icon {
+    font-size: 18px;
+    transition: .3s;
+}
+
+.switch {
+    position: relative;
+    width: 52px;
+    height: 28px;
+}
+
+.switch input {
+    display: none;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    cursor: pointer;
+    background: #5b6475;
+    transition: .3s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    width: 22px;
+    height: 22px;
+    left: 3px;
+    bottom: 3px;
+    background: white;
+    transition: .3s;
+}
+
+input:checked + .slider {
+    background: #ff9800;
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+}
+
+.slider.round {
+    border-radius: 30px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.btn-warning {
+    background: #ff9800;
+    border: none;
+}
+
+.btn-warning:hover {
+    background: #f57c00;
+}
+
+.btn-outline-light,
+.btn-outline-dark {
+    border-radius: 10px;
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media (max-width: 992px) {
+
+    .navbar-nav {
+        margin: 20px 0;
+    }
+
+    .search-bar input,
+    .search-input {
+        width: 100%;
+    }
+
+    .theme-switch {
+        margin: 18px 0;
+        justify-content: center;
+    }
+
+    .dropdown {
+        margin-top: 15px;
+    }
+
+}
