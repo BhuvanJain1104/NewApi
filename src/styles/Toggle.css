@@ -57,6 +57,9 @@
     width: 260px;
     border-radius: 10px !important;
 }
+.search-bar {
+    min-width:280px;
+}
 
 /* ===========================
    USER AVATAR

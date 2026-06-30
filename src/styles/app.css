@@ -17,8 +17,8 @@
   height: 350px;
   /* Add additional styles as needed */
 }
-body {
-  padding-top: 5%;
+body{
+    padding-top:80px;
 }
 .row {
   overflow-y: hidden; /* Hide vertical scrollbar */

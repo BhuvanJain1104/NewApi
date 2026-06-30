@@ -37,11 +37,10 @@ const NavBar = ({
 
   return (
     <nav
-      className={`navbar navbar-expand-lg fixed-top navbar-${
-        darkMode ? "dark" : "light"
-      } bg-${darkMode ? "light" : "dark"}`}
+      className={`navbar navbar-expand-lg fixed-top navbar-${darkMode ? "dark" : "light"
+        } bg-${darkMode ? "light" : "dark"}`}
     >
-       <div className="container-fluid px-4">
+      <div className="container-fluid px-4">
 
         <NavLink
           to="/home"
@@ -73,22 +72,20 @@ const NavBar = ({
 
             <NavLink
               to="/home"
-              className={`btn ${
-                darkMode
-                  ? "btn-outline-dark"
-                  : "btn-outline-light"
-              }`}
+              className={`btn ${darkMode
+                ? "btn-outline-dark"
+                : "btn-outline-light"
+                }`}
             >
               Home
             </NavLink>
 
             <NavLink
               to="/login"
-              className={`btn ${
-                darkMode
-                  ? "btn-outline-dark"
-                  : "btn-outline-light"
-              }`}
+              className={`btn ${darkMode
+                ? "btn-outline-dark"
+                : "btn-outline-light"
+                }`}
             >
               Login
             </NavLink>
@@ -105,7 +102,7 @@ const NavBar = ({
         ) : (
 
           <>
-                      <button
+            <button
               className="navbar-toggler"
               type="button"
               data-bs-toggle="collapse"
@@ -114,10 +111,7 @@ const NavBar = ({
               <span className="navbar-toggler-icon"></span>
             </button>
 
-         <div
-  className="collapse navbar-collapse justify-content-between"
-  id="navbarSupportedContent"
->
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
               <ul className="navbar-nav ms-auto align-items-lg-center">
 
@@ -139,8 +133,7 @@ const NavBar = ({
                     <NavLink
                       to={path}
                       className={({ isActive }) =>
-                        `${isActive ? "active-nav" : ""} nav-link ${
-                          darkMode ? "text-dark" : "text-light"
+                        `${isActive ? "active-nav" : ""} nav-link ${darkMode ? "text-dark" : "text-light"
                         }`
                       }
                     >
@@ -152,7 +145,7 @@ const NavBar = ({
 
               </ul>
 
-        <div className="d-flex align-items-center ms-3 flex-shrink-0">
+              <div className="ms-auto d-flex align-items-center">
                 <SearchBar
                   onSearch={onSearch}
                   darkMode={darkMode}
@@ -175,106 +168,106 @@ const NavBar = ({
 
                   <ul className="dropdown-menu dropdown-menu-end">
                     {user && (
-  <>
-    <li>
-      <NavLink
-        to="/profile"
-        className="dropdown-item"
-      >
-        <FontAwesomeIcon
-          icon={faUserCircle}
-          className="me-2"
-        />
-        Profile
-      </NavLink>
-    </li>
+                      <>
+                        <li>
+                          <NavLink
+                            to="/profile"
+                            className="dropdown-item"
+                          >
+                            <FontAwesomeIcon
+                              icon={faUserCircle}
+                              className="me-2"
+                            />
+                            Profile
+                          </NavLink>
+                        </li>
 
-    <li>
-      <NavLink
-        to="/preferences"
-        className="dropdown-item"
-      >
-        <FontAwesomeIcon
-          icon={faSliders}
-          className="me-2"
-        />
-        Preferences
-      </NavLink>
-    </li>
+                        <li>
+                          <NavLink
+                            to="/preferences"
+                            className="dropdown-item"
+                          >
+                            <FontAwesomeIcon
+                              icon={faSliders}
+                              className="me-2"
+                            />
+                            Preferences
+                          </NavLink>
+                        </li>
 
-    <li>
-      <NavLink
-        to="/bookmarks"
-        className="dropdown-item"
-      >
-        <FontAwesomeIcon
-          icon={faBookmark}
-          className="me-2"
-        />
-        My Bookmarks
-      </NavLink>
-    </li>
+                        <li>
+                          <NavLink
+                            to="/bookmarks"
+                            className="dropdown-item"
+                          >
+                            <FontAwesomeIcon
+                              icon={faBookmark}
+                              className="me-2"
+                            />
+                            My Bookmarks
+                          </NavLink>
+                        </li>
 
-    <li>
-      <hr className="dropdown-divider" />
-    </li>
-  </>
-)}
+                        <li>
+                          <hr className="dropdown-divider" />
+                        </li>
+                      </>
+                    )}
 
-<li>
-  <button
-    className="dropdown-item"
-    onClick={toggleDarkMode}
-  >
-    <FontAwesomeIcon
-      icon={darkMode ? faSun : faMoon}
-      className="me-2"
-    />
+                    <li>
+                      <button
+                        className="dropdown-item"
+                        onClick={toggleDarkMode}
+                      >
+                        <FontAwesomeIcon
+                          icon={darkMode ? faSun : faMoon}
+                          className="me-2"
+                        />
 
-    {darkMode
-      ? "Light Mode"
-      : "Dark Mode"}
-  </button>
-</li>
+                        {darkMode
+                          ? "Light Mode"
+                          : "Dark Mode"}
+                      </button>
+                    </li>
 
-<li>
-  <hr className="dropdown-divider" />
-</li>
+                    <li>
+                      <hr className="dropdown-divider" />
+                    </li>
 
-{user ? (
-  <li>
-    <button
-      className="dropdown-item text-danger"
-      onClick={handleLogout}
-    >
-      <FontAwesomeIcon
-        icon={faRightFromBracket}
-        className="me-2"
-      />
-      Logout
-    </button>
-  </li>
-) : (
-  <>
-    <li>
-      <NavLink
-        to="/login"
-        className="dropdown-item"
-      >
-        Login
-      </NavLink>
-    </li>
+                    {user ? (
+                      <li>
+                        <button
+                          className="dropdown-item text-danger"
+                          onClick={handleLogout}
+                        >
+                          <FontAwesomeIcon
+                            icon={faRightFromBracket}
+                            className="me-2"
+                          />
+                          Logout
+                        </button>
+                      </li>
+                    ) : (
+                      <>
+                        <li>
+                          <NavLink
+                            to="/login"
+                            className="dropdown-item"
+                          >
+                            Login
+                          </NavLink>
+                        </li>
 
-    <li>
-      <NavLink
-        to="/register"
-        className="dropdown-item"
-      >
-        Register
-      </NavLink>
-    </li>
-  </>
-)}
+                        <li>
+                          <NavLink
+                            to="/register"
+                            className="dropdown-item"
+                          >
+                            Register
+                          </NavLink>
+                        </li>
+                      </>
+                    )}
 
                   </ul>
 
