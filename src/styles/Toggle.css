@@ -18,6 +18,17 @@
 .navbar-nav {
     gap: 6px;
 }
+.search-bar{
+    display:flex;
+    align-items:center;
+}
+
+.search-input{
+    width:260px;
+    min-width:220px;
+    max-width:300px;
+    border-radius:10px !important;
+}
 
 .navbar-nav .nav-link {
     font-weight: 500;

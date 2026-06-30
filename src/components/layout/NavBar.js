@@ -41,7 +41,7 @@ const NavBar = ({
         darkMode ? "dark" : "light"
       } bg-${darkMode ? "light" : "dark"}`}
     >
-      <div className="container">
+       <div className="container-fluid px-4">
 
         <NavLink
           to="/home"
@@ -114,10 +114,10 @@ const NavBar = ({
               <span className="navbar-toggler-icon"></span>
             </button>
 
-            <div
-              className="collapse navbar-collapse"
-              id="navbarSupportedContent"
-            >
+         <div
+  className="collapse navbar-collapse justify-content-between"
+  id="navbarSupportedContent"
+>
 
               <ul className="navbar-nav ms-auto align-items-lg-center">
 
@@ -152,8 +152,7 @@ const NavBar = ({
 
               </ul>
 
-              <div className="d-flex align-items-center ms-lg-4">
-
+        <div className="d-flex align-items-center ms-3 flex-shrink-0">
                 <SearchBar
                   onSearch={onSearch}
                   darkMode={darkMode}
