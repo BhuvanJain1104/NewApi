@@ -64,7 +64,7 @@ export class News extends Component {
           this.props.searchQuery
         )}&page=1&pageSize=${this.props.pageSize}`;
       } else {
-        url = `${process.env.REACT_APP_API}/news?country=${this.props.country}&category=${this.props.category}&page=1&pageSize=${this.props.pageSize}`;
+        url = `https://newsmonkey-1xh6.onrender.com/api/news?country=${this.props.country}&category=${this.props.category}&page=1&pageSize=${this.props.pageSize}`;
       }
 
       this.props.setProgress(50);
