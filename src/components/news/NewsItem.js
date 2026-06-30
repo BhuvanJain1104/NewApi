@@ -27,10 +27,10 @@ const NewsItem = ({
   const [bookmarked, setBookmarked] = useState(false);
   const [bookmarkId, setBookmarkId] = useState(null);
 
-  useEffect(() => {
-    checkBookmark();
-  }, [newsUrl]);
-
+useEffect(() => {
+  checkBookmark();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [newsUrl]);
   const checkBookmark = async () => {
     try {
       const bookmarks = await getBookmarks();

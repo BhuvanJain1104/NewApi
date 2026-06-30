@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import NewsItem from "./NewsItem";
-import Spinner from "../layout/Spinner";
 import monkeyIcon from "../../assets/images/monkey-icon.png";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -61,11 +60,11 @@ export class News extends Component {
       let url = "";
 
       if (this.props.searchQuery) {
-        url = `http://localhost:5000/api/news?search=${encodeURIComponent(
+        url = `${process.env.REACT_APP_API}/news?search=${encodeURIComponent(
           this.props.searchQuery
         )}&page=1&pageSize=${this.props.pageSize}`;
       } else {
-        url = `http://localhost:5000/api/news?country=${this.props.country}&category=${this.props.category}&page=1&pageSize=${this.props.pageSize}`;
+        url = `${process.env.REACT_APP_API}/news?country=${this.props.country}&category=${this.props.category}&page=1&pageSize=${this.props.pageSize}`;
       }
 
       this.props.setProgress(50);
@@ -109,11 +108,11 @@ export class News extends Component {
       let url = "";
 
       if (this.props.searchQuery) {
-        url = `http://localhost:5000/api/news?search=${encodeURIComponent(
+        url = `${process.env.REACT_APP_API}/news?search=${encodeURIComponent(
           this.props.searchQuery
         )}&page=${nextPage}&pageSize=${this.props.pageSize}`;
       } else {
-        url = `http://localhost:5000/api/news?country=${this.props.country}&category=${this.props.category}&page=${nextPage}&pageSize=${this.props.pageSize}`;
+        url = `${process.env.REACT_APP_API}/news?country=${this.props.country}&category=${this.props.category}&page=${nextPage}&pageSize=${this.props.pageSize}`;
       }
 
       const token = localStorage.getItem("token");

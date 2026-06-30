@@ -14,9 +14,8 @@ const categories = [
 
 const Preferences = ({ darkMode }) => {
   const [selected, setSelected] = useState([]);
-
   const API = axios.create({
-    baseURL: "http://localhost:5000/api",
+    baseURL: process.env.REACT_APP_API || "http://localhost:5000/api",
   });
 
   API.interceptors.request.use((config) => {
@@ -29,10 +28,10 @@ const Preferences = ({ darkMode }) => {
     return config;
   });
 
-  useEffect(() => {
-    loadPreferences();
-  }, []);
-
+useEffect(() => {
+  loadPreferences();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, []);
   const loadPreferences = async () => {
     try {
       const res = await API.get("/preferences");
