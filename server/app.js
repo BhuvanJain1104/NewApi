@@ -14,12 +14,16 @@ connectDB();
 
 const app = express();
 
+const cors = require("cors");
+
 app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://YOUR_APP_NAME.vercel.app",
+      "https://news-monkey-gold-one.vercel.app",
+      "https://news-monkey-ps400rosy-jain4.vercel.app"
     ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
 );
