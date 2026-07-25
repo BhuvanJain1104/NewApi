@@ -158,6 +158,7 @@ const closeNavbar = () => {
               <div className="ms-auto d-flex align-items-center">
                 <SearchBar
                   onSearch={onSearch}
+                  onClick={closeNavbar}
                   darkMode={darkMode}
                 />
 
