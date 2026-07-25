@@ -42,13 +42,10 @@ const closeNavbar = () => {
   }
 };
   return (
-   <nav
-className={`navbar navbar-expand-lg fixed-top ${
-  darkMode
-    ? "navbar-dark bg-dark"
-    : "navbar-light bg-light"
-}`}
->
+    <nav
+      className={`navbar navbar-expand-lg fixed-top navbar-${darkMode ? "dark" : "light"
+        } bg-${darkMode ? "light" : "dark"}`}
+    >
       <div className="container-fluid px-4">
 
         <NavLink
