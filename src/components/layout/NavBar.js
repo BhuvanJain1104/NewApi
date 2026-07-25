@@ -173,9 +173,9 @@ const closeNavbar = () => {
                       color: "#fff",
                     }}
                     data-bs-toggle="dropdown"
-                    onClick={closeNavbar}
+                    
                   >
-                    <FontAwesomeIcon icon={faBars} onClick={closeNavbar}/>
+                    <FontAwesomeIcon icon={faBars} />
                   </button>
 
                   <ul className="dropdown-menu dropdown-menu-end">
