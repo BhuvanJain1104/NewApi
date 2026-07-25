@@ -183,25 +183,44 @@ input:checked + .slider:before {
 /* ===========================
    MOBILE
 =========================== */
+@media (max-width: 991.98px) {
 
-@media (max-width: 992px) {
+    .navbar-collapse {
+        background: inherit;
+        padding: 15px;
+        border-radius: 12px;
+        margin-top: 10px;
+                }
 
     .navbar-nav {
-        margin: 20px 0;
+        width: 100%;
+        text-align: center;
+        margin: 15px 0;
     }
 
-    .search-bar input,
-    .search-input {
+    .navbar-nav .nav-item {
         width: 100%;
     }
 
-    .theme-switch {
-        margin: 18px 0;
-        justify-content: center;
+    .navbar-nav .nav-link {
+        display: block;
+        padding: 12px;
+    }
+
+    .search-bar {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .search-input {
+        width: 100%;
+        max-width: 100%;
     }
 
     .dropdown {
+        width: 100%;
+        display: flex;
+        justify-content: center;
         margin-top: 15px;
-    }
-
+        }
 }

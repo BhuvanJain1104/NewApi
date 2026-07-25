@@ -34,15 +34,25 @@ const NavBar = ({
 
     navigate("/login");
   };
+const closeNavbar = () => {
+  const navbar = document.getElementById("navbarSupportedContent");
 
+  if (navbar && navbar.classList.contains("show")) {
+    navbar.classList.remove("show");
+  }
+};
   return (
-    <nav
-      className={`navbar navbar-expand-lg fixed-top navbar-${darkMode ? "dark" : "light"
-        } bg-${darkMode ? "light" : "dark"}`}
-    >
+   <nav
+className={`navbar navbar-expand-lg fixed-top ${
+  darkMode
+    ? "navbar-dark bg-dark"
+    : "navbar-light bg-light"
+}`}
+>
       <div className="container-fluid px-4">
 
         <NavLink
+        onClick={closeNavbar}
           to="/home"
           className="navbar-brand d-flex align-items-center"
         >
@@ -72,6 +82,7 @@ const NavBar = ({
 
             <NavLink
               to="/home"
+              onClick={closeNavbar}
               className={`btn ${darkMode
                 ? "btn-outline-dark"
                 : "btn-outline-light"
@@ -91,6 +102,7 @@ const NavBar = ({
             </NavLink>
 
             <NavLink
+            onClick={closeNavbar}
               to="/register"
               className="btn btn-warning"
             >
@@ -132,6 +144,7 @@ const NavBar = ({
                   >
                     <NavLink
                       to={path}
+                      onClick={closeNavbar}
                       className={({ isActive }) =>
                         `${isActive ? "active-nav" : ""} nav-link ${darkMode ? "text-dark" : "text-light"
                         }`
@@ -162,6 +175,7 @@ const NavBar = ({
                       color: "#fff",
                     }}
                     data-bs-toggle="dropdown"
+                    onClick={closeNavbar}
                   >
                     <FontAwesomeIcon icon={faBars} />
                   </button>
@@ -173,6 +187,7 @@ const NavBar = ({
                           <NavLink
                             to="/profile"
                             className="dropdown-item"
+                            onClick={closeNavbar}
                           >
                             <FontAwesomeIcon
                               icon={faUserCircle}
@@ -184,8 +199,9 @@ const NavBar = ({
 
                         <li>
                           <NavLink
-                            to="/preferences"
+                            to="/preferences"   
                             className="dropdown-item"
+                            onClick={closeNavbar}
                           >
                             <FontAwesomeIcon
                               icon={faSliders}
@@ -199,6 +215,7 @@ const NavBar = ({
                           <NavLink
                             to="/bookmarks"
                             className="dropdown-item"
+                            onClick={closeNavbar}
                           >
                             <FontAwesomeIcon
                               icon={faBookmark}
@@ -238,7 +255,10 @@ const NavBar = ({
                       <li>
                         <button
                           className="dropdown-item text-danger"
-                          onClick={handleLogout}
+                          onClick={() => {
+                            closeNavbar();
+                            handleLogout();
+                          }}
                         >
                           <FontAwesomeIcon
                             icon={faRightFromBracket}
@@ -253,6 +273,7 @@ const NavBar = ({
                           <NavLink
                             to="/login"
                             className="dropdown-item"
+                            onClick={closeNavbar}
                           >
                             Login
                           </NavLink>
@@ -262,6 +283,7 @@ const NavBar = ({
                           <NavLink
                             to="/register"
                             className="dropdown-item"
+                            onClick={closeNavbar}
                           >
                             Register
                           </NavLink>

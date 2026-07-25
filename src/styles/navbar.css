@@ -27,3 +27,20 @@
     font-size:18px;
     box-shadow:0 3px 10px rgba(0,0,0,.2);
 }
+.navbar-toggler {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.navbar-light .navbar-toggler-icon {
+    filter: none;
+}
+
+.navbar-dark .navbar-toggler-icon {
+    filter: invert(1);
+}
