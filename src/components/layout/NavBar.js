@@ -34,13 +34,13 @@ const NavBar = ({
 
     navigate("/login");
   };
-const closeNavbar = () => {
-  const navbar = document.getElementById("navbarSupportedContent");
+  const closeNavbar = () => {
+    const navbar = document.getElementById("navbarSupportedContent");
 
-  if (navbar && navbar.classList.contains("show")) {
-    navbar.classList.remove("show");
-  }
-};
+    if (navbar && navbar.classList.contains("show")) {
+      navbar.classList.remove("show");
+    }
+  };
   return (
     <nav
       className={`navbar navbar-expand-lg fixed-top navbar-${darkMode ? "dark" : "light"
@@ -49,7 +49,7 @@ const closeNavbar = () => {
       <div className="container-fluid px-4">
 
         <NavLink
-        onClick={closeNavbar}
+          onClick={closeNavbar}
           to="/home"
           className="navbar-brand d-flex align-items-center"
         >
@@ -99,7 +99,7 @@ const closeNavbar = () => {
             </NavLink>
 
             <NavLink
-            onClick={closeNavbar}
+              onClick={closeNavbar}
               to="/register"
               className="btn btn-warning"
             >
@@ -116,8 +116,15 @@ const closeNavbar = () => {
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+              style={{
+                color: darkMode ? "#212529" : "#fff",
+                fontSize: "28px",
+              }}
             >
-              <span className="navbar-toggler-icon"></span>
+              <FontAwesomeIcon icon={faBars} />
             </button>
 
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -173,7 +180,7 @@ const closeNavbar = () => {
                       color: "#fff",
                     }}
                     data-bs-toggle="dropdown"
-                    
+
                   >
                     <FontAwesomeIcon icon={faBars} />
                   </button>
@@ -197,7 +204,7 @@ const closeNavbar = () => {
 
                         <li>
                           <NavLink
-                            to="/preferences"   
+                            to="/preferences"
                             className="dropdown-item"
                             onClick={closeNavbar}
                           >
