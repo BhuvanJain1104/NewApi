@@ -11,6 +11,7 @@ import {
   faUserCircle,
   faRightFromBracket,
   faBookmark,
+  faSliders,
   faBars,
   faXmark,
   faMoon,
