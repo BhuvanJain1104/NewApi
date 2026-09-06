@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 
+dotenv.config();
+
 const connectDB = require("./config/db");
 
 const authRoutes = require("./routes/auth");
@@ -9,7 +11,7 @@ const bookmarkRoutes = require("./routes/bookmark");
 const newsRoutes = require("./routes/news");
 const userRoutes = require("./routes/user");
 const preferenceRoutes = require("./routes/preferences");
-
+const aiRoutes = require("./routes/ai");
 dotenv.config();
 
 connectDB();
@@ -40,7 +42,7 @@ app.use("/api/bookmarks", bookmarkRoutes);
 app.use("/api/news", newsRoutes);
 app.use("/api/user", userRoutes);
 app.use("/api/preferences", preferenceRoutes);
-
+app.use("/api/ai", aiRoutes);
 app.get("/", (req, res) => {
   res.json({
     success: true,

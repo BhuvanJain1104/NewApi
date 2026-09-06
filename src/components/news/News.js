@@ -144,7 +144,7 @@ export class News extends Component {
   };
   render() {
     const { articles } = this.state;
-    console.log("Dark Mode:", this.props.darkMode);
+    
     return (
       <div
         className="container-fluid py-4"

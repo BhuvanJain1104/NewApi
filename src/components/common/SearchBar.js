@@ -5,7 +5,7 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "../../styles/Toggle.css";
 
 const SearchBar = ({ onSearch, darkMode }) => {
-    console.log("SearchBar onSearch:", onSearch);
+  
 
     const [keyword, setKeyword] = useState("");
     const navigate = useNavigate();

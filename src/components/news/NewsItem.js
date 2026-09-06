@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBookmark,
   faShareNodes,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons";
 
 import {
@@ -13,6 +14,7 @@ import {
   getBookmarks,
   deleteBookmark,
 } from "../../utils/bookmarkService";
+import { summarizeArticle } from "../../utils/aiService";
 const NewsItem = ({
   title,
   description,
@@ -26,11 +28,14 @@ const NewsItem = ({
 }) => {
   const [bookmarked, setBookmarked] = useState(false);
   const [bookmarkId, setBookmarkId] = useState(null);
+  const [showSummary, setShowSummary] = useState(false);
+  const [summary, setSummary] = useState(null);
+  const [aiLoading, setAiLoading] = useState(false);
 
-useEffect(() => {
-  checkBookmark();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-}, [newsUrl]);
+  useEffect(() => {
+    checkBookmark();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [newsUrl]);
   const checkBookmark = async () => {
     try {
       const bookmarks = await getBookmarks();
@@ -50,6 +55,26 @@ useEffect(() => {
       console.log(err);
     }
   };
+  const handleAISummary = async () => {
+    try {
+      setShowSummary(true);
+      setAiLoading(true);
+      setSummary("");
+
+      const data = await summarizeArticle(newsUrl);
+
+      setSummary(data.summary);
+    } catch (error) {
+      console.error("AI SUMMARY ERROR:", error);
+
+      toast.error(
+        error.response?.data?.message ||
+        "Unable to generate AI summary"
+      );
+    } finally {
+      setAiLoading(false);
+    }
+  };
   const handleBookmark = async () => {
     try {
       if (!bookmarked) {
@@ -67,7 +92,7 @@ useEffect(() => {
         setBookmarkId(res.bookmark._id);
 
         setBookmarked(true);
-     
+
 
         toast.success("Added to bookmarks");
 
@@ -185,6 +210,11 @@ useEffect(() => {
                 className="share-icon"
                 onClick={handleShare}
               />
+              <FontAwesomeIcon
+                icon={faStar}
+                className="summary-icon"
+                onClick={handleAISummary}
+              />
             </div>
           </div>
         </div>
@@ -209,6 +239,81 @@ useEffect(() => {
           </small>
         </div>
       </div>
+
+      {/* AI Summary Modal */}
+      {showSummary && (
+        <div className="ai-overlay">
+          <div className="ai-summary-modal">
+
+            <div className="ai-summary-header">
+              <h4>✨ AI News Summary</h4>
+
+              <button
+                className="ai-close-btn"
+                onClick={() => setShowSummary(false)}
+              >
+                ×
+              </button>
+            </div>
+            <div className="ai-summary-content">
+              <span className="ai-source">{source}</span>
+
+              <h3>{title || "No Title Available"}</h3>
+
+              {aiLoading ? (
+                <div className="ai-loading">
+                  <div className="ai-spinner"></div>
+
+                  <h5>Generating AI Summary...</h5>
+
+                  <p>
+                    Please wait while we analyze this article.
+                  </p>
+                </div>
+              ) : (
+                <>
+                  <div className="ai-section">
+                    <h5>Quick Summary</h5>
+                    <p>{summary?.summary}</p>
+                  </div>
+
+                  <div className="ai-section">
+                    <h5>Key Points</h5>
+
+                    <ul>
+                      {summary?.keyPoints?.map((point, index) => (
+                        <li key={index}>{point}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="ai-section">
+                    <h5>Why This News Matters</h5>
+                    <p>{summary?.whyItMatters}</p>
+                  </div>
+
+                  <div className="ai-section">
+                    <h5>In Simple Words</h5>
+                    <p>{summary?.simpleExplanation}</p>
+                  </div>
+                </>
+              )}
+            </div>
+
+            <div className="ai-summary-footer">
+              <a
+                href={newsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Read Full Article →
+              </a>
+            </div>
+
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };
