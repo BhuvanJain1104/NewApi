@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/Toggle.css";
 import monkeyIcon from "../../assets/images/monkey-icon.png";
 import SearchBar from "../common/SearchBar";
@@ -11,8 +11,8 @@ import {
   faUserCircle,
   faRightFromBracket,
   faBookmark,
-  faSliders,
   faBars,
+  faXmark,
   faMoon,
   faSun,
 } from "@fortawesome/free-solid-svg-icons";
@@ -25,7 +25,7 @@ const NavBar = ({
 }) => {
 
   const navigate = useNavigate();
-
+  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
 
   const handleLogout = () => {
@@ -35,11 +35,7 @@ const NavBar = ({
     navigate("/login");
   };
   const closeNavbar = () => {
-    const navbar = document.getElementById("navbarSupportedContent");
-
-    if (navbar && navbar.classList.contains("show")) {
-      navbar.classList.remove("show");
-    }
+    setIsNavbarOpen(false);
   };
   return (
     <nav
@@ -114,20 +110,23 @@ const NavBar = ({
             <button
               className="navbar-toggler"
               type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent"
               aria-controls="navbarSupportedContent"
-              aria-expanded="false"
+              aria-expanded={isNavbarOpen}
               aria-label="Toggle navigation"
+              onClick={() => setIsNavbarOpen(!isNavbarOpen)}
               style={{
                 color: darkMode ? "#212529" : "#fff",
                 fontSize: "28px",
               }}
             >
-              <FontAwesomeIcon icon={faBars} />
+              <FontAwesomeIcon icon={isNavbarOpen ? faXmark : faBars} />
             </button>
 
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <div
+              className={`collapse navbar-collapse ${isNavbarOpen ? "show" : ""
+                }`}
+              id="navbarSupportedContent"
+            >
 
               <ul className="navbar-nav ms-auto align-items-lg-center">
 
